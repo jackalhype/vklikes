@@ -1,0 +1,37 @@
+.col-xs5-1,
+.col-sm5-1,
+.col-md5-1,
+.col-lg5-1 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+@media (max-width: 768px) {
+    .col-xs5-1 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .col-sm5-1 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .col-md5-1 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg5-1 {
+        width: 20%;
+        float: left;
+    }
+}
