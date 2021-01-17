@@ -24,7 +24,6 @@ class VkLikesParser extends VkApiAbstractClient
     protected $vk_url; // vk post URL which we parse;
 
     protected $api_url = 'https://api.vk.com/method/likes.getList';
-    protected $v = '4.1';
 
     // required
     protected $types = [
@@ -161,7 +160,7 @@ class VkLikesParser extends VkApiAbstractClient
     protected function parseResponse()
     {
         $response = json_decode($this->curl_response, true);
-        if ((!isset($response['response']['count']) || !isset($response['response']['users'])) && $this->offset < $this->count ){
+        if ((!isset($response['response']['count']) || !isset($response['response']['items'])) && $this->offset < $this->count ){
             if (isset($response['error']['error_msg'])) {
                 $this->setError($response['error']['error_msg']);
             } else {
@@ -172,7 +171,7 @@ class VkLikesParser extends VkApiAbstractClient
             return false;
         }
         $this->vk_user_count = (int) $response['response']['count'];
-        $this->vk_user_ids = array_merge($this->vk_user_ids, $response['response']['users']);
+        $this->vk_user_ids = array_merge($this->vk_user_ids, $response['response']['items']);
         return true;
     }
 

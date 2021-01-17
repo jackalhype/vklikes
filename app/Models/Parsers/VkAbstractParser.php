@@ -20,7 +20,6 @@ use App\Models\Parsers\VkApiAbstractClient;
 abstract class VkAbstractParser extends VkApiAbstractClient
 {
     protected $api_url;
-    protected $v = '4.100';           // api version
     protected $request_url;
     protected $offset = 0;
     protected $count = 1000;

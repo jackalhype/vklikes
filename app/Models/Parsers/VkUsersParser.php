@@ -19,7 +19,6 @@ class VkUsersParser extends VkApiAbstractClient
     protected $profiles_parsed_num = 0;
 
     protected $api_url = 'https://api.vk.com/method/users.get';
-    protected $v = '4.1';
     protected $count = 1000; // per 1 request
     protected $offset = 0;
     protected $max_requests_num = 10;

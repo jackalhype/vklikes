@@ -26,9 +26,9 @@ class VkCountriesParser extends VkAbstractParser
     {
         $collection = $this->response_collection;
         $this->prepared_data_arr = [];
-        foreach($collection as $item) {
+        foreach($collection['items'] as $item) {
             $fields = [
-                'cid' => $item['cid'],
+                'cid' => $item['id'],
                 'updated_at' => date('Y-m-d H:i:s'),
             ];
             if ($this->lang == 'ru') {

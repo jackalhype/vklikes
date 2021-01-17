@@ -40,7 +40,7 @@ class FewTest extends TestCase
 
     public function testAccessToken() {
         $access_token = VkApiAbstractClient::$access_token;
-        $api_url = "https://api.vk.com/method/users.get?v=4.100&fields=sex,bdate,city,country,photo,photo_medium,photo_big,contacts,last_seen,status,followers_count,domain,site&user_ids=1,2,3,4,5
+        $api_url = "https://api.vk.com/method/users.get?v=5.21&fields=sex,bdate,city,country,photo,photo_medium,photo_big,contacts,last_seen,status,followers_count,domain,site&user_ids=1,2,3,4,5
 &access_token={$access_token}";
         $resp = file_get_contents($api_url);
         $this->assertNotEquals(false, $resp);

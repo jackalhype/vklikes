@@ -20,7 +20,6 @@ class VkCitiesParser extends VkApiAbstractClient
     protected $country_id;
     protected $region_id;
     protected $api_url = 'https://api.vk.com/method/database.getCities';
-    protected $v = '4.100';
     protected $request_url;
     protected $offset = 0;
     protected $count = 1000;
@@ -123,7 +122,7 @@ class VkCitiesParser extends VkApiAbstractClient
             $this->has_jobs = false;
         }
         $this->prepared_data_arr = [];
-        foreach($collection as $item) {
+        foreach($collection['items'] as $item) {
             if (!isset($item['title'])) {
                 throw new ParserException(print_r($this->curl_response, true));
             }
@@ -132,7 +131,7 @@ class VkCitiesParser extends VkApiAbstractClient
             $fields = [
                 'country_id' => $this->country_id,
                 'region_id' => $this->region_id,
-                'cid' => $item['cid'],
+                'cid' => $item['id'],
                 'title' => $title,
                 'title_en' => $title_en,
                 'area' => isset($item['area']) ? $item['area'] : null,

@@ -11,7 +11,6 @@ class VkRegionsParser extends VkApiAbstractClient
 {
     protected $country_id;
     protected $api_url = 'https://api.vk.com/method/database.getRegions';
-    protected $v = '4.100';
     protected $request_url;
     protected $offset = 0;
     protected $count = 1000;
@@ -70,11 +69,11 @@ class VkRegionsParser extends VkApiAbstractClient
         //throw new ParserException(print_r($response_decoded, true));
         //throw new ParserException(print_r($this->request_url, true));
         $regions = $response_decoded['response'];
-        foreach($regions as $region) {
+        foreach($regions['items'] as $region) {
             $title_en = Translit::rutoen($region['title']);
             $this->regions_arr[] = [
                 'country_id' => $this->country_id,
-                'region_id' => $region['region_id'],
+                'region_id' => $region['id'],
                 'title' => $region['title'],
                 'title_en' => $title_en,
             ];
