@@ -97,7 +97,7 @@ class VkUsersParser extends VkApiAbstractClient
         $this->prepared_data_arr = [];
         foreach($users_data as $data) {
             $fields = [];
-            $fields['uid'] = $data['uid'];
+            $fields['uid'] = $data['id'];
             $fields['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
             $fields['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
             $fields['deactivated'] = isset($data['deactivated']) ? $data['deactivated'] : false;
@@ -118,8 +118,8 @@ class VkUsersParser extends VkApiAbstractClient
                 }
                 $fields['birth_month_day'] = $month . '.' . $day;
             }
-            $fields['city_id'] = isset($data['city']) ? $data['city'] : null;
-            $fields['country_id'] = isset($data['country']) ? $data['country'] : null;
+            $fields['city_id'] = isset($data['city']['id']) ? $data['city']['id'] : null;
+            $fields['country_id'] = isset($data['country']['id']) ? $data['country']['id'] : null;
             $fields['photo'] = isset($data['photo']) ? $data['photo'] : null;
             $fields['photo_medium'] = isset($data['photo_medium']) ? $data['photo_medium'] : null;
             $fields['photo_big'] = isset($data['photo_big']) ? $data['photo_big'] : null;

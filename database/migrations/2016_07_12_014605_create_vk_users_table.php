@@ -25,9 +25,9 @@ class CreateVkUsersTable extends Migration
             $table->string('birth_month_day', 5)->nullable()->comment('MM.DD');
             $table->integer('city_id')->nullable()->comment('city id');
             $table->integer('country_id')->nullable()->comment('country id');
-            $table->string('photo', 128)->nullable()->comment('photo url');
-            $table->string('photo_medium', 128)->nullable()->comment('photo_medium url');
-            $table->string('photo_big', 128)->nullable()->comment('photo_big url');
+            $table->string('photo', 255)->nullable()->comment('photo url');
+            $table->string('photo_medium', 255)->nullable()->comment('photo_medium url');
+            $table->string('photo_big', 255)->nullable()->comment('photo_big url');
             $table->string('contacts', 100)->nullable()->comment('contacts');
             $table->timestamp('last_seen_time')->nullable()->comment('last seen online timestamp');
             $table->string('last_seen_platform', 5)->nullable()->comment('last seen platform');

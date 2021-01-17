@@ -115,7 +115,7 @@ class VkCitiesParser extends VkApiAbstractClient
             throw new ParserException($msg);
         }
         $collection = $response_decoded['response'];
-        $this->last_curl_cnt = count($collection);
+        $this->last_curl_cnt = count($collection['items']);
         $this->portion_cnt += $this->last_curl_cnt;
         $this->total_cnt += $this->last_curl_cnt;
         if ($this->last_curl_cnt < $this->count) {
